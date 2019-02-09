@@ -1,6 +1,7 @@
 FROM php:7.1-fpm
 
 ENV PHP_EXTRA_CONFIGURE_ARGS --enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data --enable-intl --enable-opcache --enable-zip
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
 
@@ -25,7 +26,7 @@ RUN \
   autoconf \
   libbz2-dev \
   libltdl-dev \
-  libpng12-dev \
+  libpng-dev \
   libjpeg62-turbo-dev \
   libfreetype6-dev \
   libxpm-dev \
@@ -33,7 +34,6 @@ RUN \
   libicu-dev \
   libmcrypt-dev \
   libxslt1-dev \
-
   re2c \
   libpng++-dev \
   libpng3 \
@@ -95,3 +95,5 @@ RUN cd /tmp/ && git clone https://github.com/xdebug/xdebug.git \
     && touch /usr/local/etc/php/ext-xdebug.ini \
     && rm -r /tmp/xdebug \
     && apt-get purge -y --auto-remove
+
+ENV DEBIAN_FRONTEND teletype
