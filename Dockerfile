@@ -85,7 +85,7 @@ RUN mkdir /var/log/php-fpm && \
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr --with-png-dir=/usr \
     && docker-php-ext-install gd
 
-curl -sS https://getcomposer.org/installer -o composer-setup.php
-php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
+RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 ENV DEBIAN_FRONTEND teletype
