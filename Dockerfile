@@ -88,4 +88,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr --
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
 RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
+# multithreaded plugin for composer
+RUN composer global require hirak/prestissimo
+
 ENV DEBIAN_FRONTEND teletype
