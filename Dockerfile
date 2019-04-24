@@ -48,7 +48,8 @@ RUN \
   curl \
   wget \
   librabbitmq-dev \
-  libzip-dev
+  libzip-dev \
+  pbzip2
 
 # http://devdocs.magento.com/guides/v2.0/install-gde/system-requirements.html
 RUN \
